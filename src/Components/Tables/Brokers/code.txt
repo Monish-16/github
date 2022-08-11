@@ -1,0 +1,233 @@
+ id: edit.corporateoffice ? edit.corporateoffice.id : "",
+                LegalName: edit.corporateoffice ? edit.corporateoffice.LegalName : "",
+                DOT_Number: edit.corporateoffice ? edit.corporateoffice.DOT_Number : "",
+                DUNS_Number: edit.corporateoffice ? edit.corporateoffice.DUNS_Number : "",
+                MC_Number: edit.corporateoffice ? edit.corporateoffice.MC_Number : "",
+                Federal_Tax_ID: edit.corporateoffice ? edit.corporateoffice.Federal_Tax_ID : "",
+                dbaName: edit.corporateoffice ? edit.corporateoffice.dbaName : "",
+                Comments: edit.corporateoffice ? edit.corporateoffice.Comments : "",
+                IsEdi: edit.corporateoffice ? Boolean(Number(edit.corporateoffice.IsEdi)) : "",
+                IsW9_YN: edit.corporateoffice ? Boolean(Number(edit.corporateoffice.IsW9_YN)) : "",
+                IsActive: edit.corporateoffice ? Boolean(Number(edit.corporateoffice.IsActive)) : "",
+                Id: edit.corporateoffice ? edit.corporateoffice.Address_Id[0].Id : "",
+                Address1: edit.corporateoffice ? edit.corporateoffice.Address_Id[0].Address1 : "",
+                Address2: edit.corporateoffice ? edit.corporateoffice.Address_Id[0].Address2 : "",
+                City: edit.corporateoffice ? edit.corporateoffice.Address_Id[0].City : "",
+                Phone: edit.corporateoffice ? edit.corporateoffice.Address_Id[0].Phone.toString() : "0",
+                State: edit.corporateoffice ? edit.corporateoffice.Address_Id[0].State : "",
+                Type: edit.corporateoffice ? edit.corporateoffice.Address_Id[0].Type : "",
+                Zipcode: edit.corporateoffice ? edit.corporateoffice.Address_Id[0].Zipcode.toString() : "",
+                Fax: edit.corporateoffice ? edit.corporateoffice.Address_Id[0].Fax.toString() : "0",
+
+
+
+
+         Name: edit.corporateoffice.contacts ? edit.corporateoffice.contacts[0].Name : "",
+                Type: edit.corporateoffice.contacts ? edit.corporateoffice.contacts[0].Type : "",
+                Email: edit.corporateoffice.contacts ? edit.corporateoffice.contacts[0].Email : "",
+                Phone: edit.corporateoffice.contacts ? edit.corporateoffice.contacts[0].Phone : "",
+                Title: edit.corporateoffice.contacts ? edit.corporateoffice.contacts[0].Title : "",
+                Mobile: edit.corporateoffice.contacts ? edit.corporateoffice.contacts[0].Mobile : "",
+                IsActive: edit.corporateoffice.contacts ? edit.corporateoffice.contacts[0].IsActive : "",
+                Entity_Id: 2141,
+                Extension: edit.corporateoffice.contacts ? edit.corporateoffice.contacts[0].Extension : "",
+                IsDeleted: false,
+                Entity_Type: edit.corporateoffice.contacts ? edit.corporateoffice.contacts[0].Entity_Type : "",
+                Department_Id: edit.corporateoffice.contacts ? edit.corporateoffice.contacts[0].Department_Id : "",
+                IsSendInviteEmail: "false"
+
+
+
+
+                   ContactEmail: edit.corporateoffice.BillTo ? edit.corporateoffice.BillTo[0].ContactEmail : "",
+                ContactName: edit.corporateoffice.BillTo ? edit.corporateoffice.BillTo[0].ContactName : "",
+                ContactPhone: edit.corporateoffice.BillTo ? edit.corporateoffice.BillTo[0].ContactPhone : "",
+                Comments: edit.corporateoffice.BillTo ? edit.corporateoffice.BillTo[0].Comments : "",
+                Terms: edit.corporateoffice.BillTo ? edit.corporateoffice.BillTo[0].Terms : "",
+                Address1: edit.corporateoffice.BillTo ? edit.corporateoffice.BillTo[0].Address_Id[0].Address1 : "",
+                Address2: edit.corporateoffice.BillTo ? edit.corporateoffice.BillTo[0].Address_Id[0].Address2 : "",
+                City: edit.corporateoffice.BillTo ? edit.corporateoffice.BillTo[0].Address_Id[0].City : "",
+                State: edit.corporateoffice.BillTo ? edit.corporateoffice.BillTo[0].Address_Id[0].State : "",
+                Phone: edit.corporateoffice.BillTo ? edit.corporateoffice.BillTo[0].Address_Id[0].Phone : "",
+                Zipcode: edit.corporateoffice.BillTo ? edit.corporateoffice.BillTo[0].Address_Id[0].Zipcode : "",
+                Fax: edit.corporateoffice.BillTo ? edit.corporateoffice.BillTo[0].Address_Id[0].Fax : "",
+
+
+                ContactName: edit.corporateoffice.InvoiceTo ? edit.corporateoffice.InvoiceTo[0].ContactName : "",
+                ContactPhone: edit.corporateoffice.InvoiceTo ? edit.corporateoffice.InvoiceTo[0].ContactPhone : "",
+                ContactEmail: edit.corporateoffice.InvoiceTo ? edit.corporateoffice.InvoiceTo[0].ContactEmail : "",
+                Comments: edit.corporateoffice.InvoiceTo ? edit.corporateoffice.InvoiceTo[0].Comments : "",
+                Terms: edit.corporateoffice.InvoiceTo ? edit.corporateoffice.InvoiceTo[0].Terms : "",
+                Address1: edit.corporateoffice.InvoiceTo ? edit.corporateoffice.InvoiceTo[0].Address_Id[0].Address1 : "",
+                Address2: edit.corporateoffice.InvoiceTo ? edit.corporateoffice.InvoiceTo[0].Address_Id[0].Address2 : "",
+                City: edit.corporateoffice.InvoiceTo ? edit.corporateoffice.InvoiceTo[0].Address_Id[0].City : "",
+                State: edit.corporateoffice.InvoiceTo ? edit.corporateoffice.InvoiceTo[0].Address_Id[0].State : "",
+                Phone: edit.corporateoffice.InvoiceTo ? edit.corporateoffice.InvoiceTo[0].Address_Id[0].Phone : "",
+                Zipcode: edit.corporateoffice.InvoiceTo ? edit.corporateoffice.InvoiceTo[0].Address_Id[0].Zipcode : "",
+                Fax: edit.corporateoffice.InvoiceTo ? edit.corporateoffice.InvoiceTo[0].Address_Id[0].Fax : "",           
+
+
+
+
+
+import * as React from 'react';
+import Button from '@mui/material/Button';
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogTitle from '@mui/material/DialogTitle';
+import DeleteIcon from '@mui/icons-material/Delete';
+import { getCustomerStart, updateCustomerStart } from '../../../Actions/customerAction';
+import { useSelector, useDispatch } from 'react-redux';
+import { toast } from "react-toastify";
+
+
+export default function DeleteModel({ handleDelId }) {
+    const [open, setOpen] = React.useState(false);
+    const dispatch = useDispatch();
+    const handleClickOpen = () => {
+        setOpen(true);
+    };
+
+    const handleClose = () => {
+        setOpen(false);
+    };
+    const customer = useSelector(state => state.fetchCustomer.customer);
+
+    const doDelete = (e) => {
+        const DelData = customer.find((e) => e.corporateoffice.id === handleDelId);
+        if (Object.keys(DelData).length > 0) {
+         
+            const CoopObj = {
+                DOT_Number: DelData.corporateoffice.DOT_Number,
+                Comments: DelData.corporateoffice.Comments,
+                DUNS_Number: DelData.corporateoffice.DUNS_Number,
+                Entity_Type_Id: 1,
+                Federal_Tax_ID: DelData.corporateoffice.Federal_Tax_ID,
+                IsActive: true,
+                IsCarrier: false,
+                IsDeleted: true,
+                IsEdi: true,
+                IsEntityAdmin: false,
+                IsW9_YN: true,
+                LegalName: DelData.corporateoffice.LegalName,
+                MC_Number: DelData.corporateoffice.MC_Number,
+                SCAC: "",
+                Type: "",
+                Id: DelData.corporateoffice.id,
+                dbaName: DelData.corporateoffice.dbaName,
+                Address_Id: {
+                    Id: DelData.corporateoffice.Address_Id[0].Id,
+                    Address1: DelData.corporateoffice.Address_Id[0].Address1,
+                    Address2: DelData.corporateoffice.Address_Id[0].Address2,
+                    City: DelData.corporateoffice.Address_Id[0].City,
+                    Fax: DelData.corporateoffice.Address_Id[0].Fax,
+                    IsActive: false,
+                    Phone: DelData.corporateoffice.Address_Id[0].Phone,
+                    State: DelData.corporateoffice.Address_Id[0].State,
+                    Type: 14,
+                    Zipcode: DelData.corporateoffice.Address_Id[0].Zipcode,
+                    IsDeleted: true,
+                },
+                // Contacts: [],
+                Contacts: [{
+                    Department_Id: DelData.corporateoffice.contacts[0].Department_Id,
+                    Email: DelData.corporateoffice.contacts[0].Email,
+                    Entity_Type: 1,
+                    Extension: DelData.corporateoffice.contacts[0].Extension,
+                    IsActive: false,
+                    IsSendInviteEmail: false,
+                    Mobile: DelData.corporateoffice.contacts[0].Mobile,
+                    Name: DelData.corporateoffice.contacts[0].Name,
+                    Phone: DelData.corporateoffice.contacts[0].Phone,
+                    Title: DelData.corporateoffice.contacts[0].Title,
+                    Type: DelData.corporateoffice.contacts[0].Type
+                }]
+            };
+            const billObj = {
+                Bill_Address_Id: {
+                    Address1: DelData.corporateoffice.BillTo[0].Address_Id[0].Address1,
+                    Address2: DelData.corporateoffice.BillTo[0].Address_Id[0].Address2,
+                    City: DelData.corporateoffice.BillTo[0].Address_Id[0].City,
+                    Fax: DelData.corporateoffice.BillTo[0].Address_Id[0].Fax,
+                    IsActive: false,
+                    IsDeleted: true,
+                    Phone: DelData.corporateoffice.BillTo[0].Address_Id[0].Phone,
+                    State: DelData.corporateoffice.BillTo[0].Address_Id[0].State,
+                    Type: 16,
+                    Zipcode: DelData.Zipcode,
+                },
+                Comments: DelData.corporateoffice.BillTo[0].Comments,
+                ContactEmail: DelData.corporateoffice.BillTo[0].ContactEmail,
+                ContactName: DelData.corporateoffice.BillTo[0].ContactName,
+                ContactPhone: DelData.corporateoffice.BillTo[0].ContactPhone,
+                IsActive: false,
+                Phone: DelData.corporateoffice.BillTo[0].Phone,
+                Terms: DelData.corporateoffice.BillTo[0].Terms,
+                Type: 19,
+                IsDeleted: true,
+            };
+            const massDelete = {
+                CorporateOffice: CoopObj,
+                BillTo: billObj,
+                DCInfo: [],
+                poolLocation: [],
+            };
+            dispatch(updateCustomerStart(massDelete));
+            toast.success("customer Deleted Success ");
+            setTimeout(() => dispatch(getCustomerStart()), 2000);
+            console.log(massDelete)
+        }
+        // if(Object.keys(DelData).length > 0){
+
+
+        // }
+
+    }
+
+    return (
+        <div>
+
+            <DeleteIcon color='error' onClick={handleClickOpen} />
+
+            <Dialog
+                open={open}
+                onClose={handleClose}
+                maxWidth="sm"
+                fullWidth
+            >
+                <DialogTitle className='addTitle'>Are You Want To Delete</DialogTitle>
+
+                <DialogActions>
+                    <form>
+                        <Button
+                            onClick={handleClose}
+                            className="cancel_Btn"
+                            variant='contained'
+                        >
+                            No
+                        </Button>
+                        <Button
+                            // type="submit"
+                            onClick={doDelete}
+                            variant='contained'
+                            className="save_Btn"
+                        >
+                            Yes
+                        </Button>
+                    </form>
+                </DialogActions>
+
+
+            </Dialog>
+        </div >
+    );
+}
+
+
+
+
+
+
+
+
+

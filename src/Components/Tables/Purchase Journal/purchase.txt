@@ -1,0 +1,88 @@
+ <Dialog
+                open={open}
+                onClose={handleClose}
+                maxWidth="xl" >
+                <DialogTitle id="alert-dialog-title">
+                    {id ? "Update PurchaseJournal Entry" : 'Create PurchaseJournal Entry'}
+                </DialogTitle>
+                <DialogContent>
+                    {/* <Form>
+                        <Form.Group as={Row} className="mb-3" controlId="PurchaseJournal_Number">
+                            <Form.Label column sm="1"> Purchase Journal # </Form.Label>
+                            <Col sm="10">
+                                <Form.Control
+                                    as="select"
+                                    value={PurchaseJournal_Number}
+                                    name="PurchaseJournal_Number"
+                                    onChange={(e) => onChange(e)}
+                                    placeholder={" PurchaseJournal Number"}
+                                    disabled={false}>
+                                    {fetchPurchase.map((t) => (
+                                        <option key={t.id} value={t.id}>{t.PurchaseJournal_Number}</option>
+                                    ))}
+                                </Form.Control>
+                            </Col>
+                        </Form.Group>
+                        <br />
+                        <Form.Group as={Row} className="mb-3" controlId="Vendor_Name">
+                            <Form.Label column sm="1">Vendor Name</Form.Label>
+                            <Col sm="10">
+                                <Form.Control
+                                    as="select"
+                                    value={Vendor_Name}
+                                    name="Vendor_Name"
+                                    onChange={(e) => onChange(e)}
+                                    placeholder={" Vendor Name "}
+                                    disabled={false}>
+                                    {fetchPurchase.map((ti) => (
+                                        <option key={ti.id} value={ti.id}>{ti.Vendor_Name}</option>
+                                    ))}
+                                </Form.Control>
+                            </Col>
+                        </Form.Group>
+                        <br />
+                        <Form.Group as={Row} className="mb-3" controlId="Amount">
+                            <Form.Label column sm="1">Amount</Form.Label>
+                            <Col sm="10">
+                                <CurrencyInput
+                                    id="Amount"
+                                    name="Amount"
+                                    prefix="$"
+                                    value={Amount}
+                                    onChange={(e) => onChange(e)}
+                                    step={1}
+                                    maxLength={inputMaximumLength}
+                                />
+
+                            </Col>
+                        </Form.Group>
+                    </Form> */}
+                </DialogContent>
+                <DialogActions>
+
+                    <Button onClick={handleClose} color="secondary"
+                        variant='outlined'
+                    >Cancel</Button>
+                    <Button color="primary"
+                        onClick={() => handleFormSubmit(data)}
+                        variant='contained'>
+                        Submit
+                    </Button>
+                </DialogActions>
+            </Dialog>
+        </>
+
+Amount: 600
+Carrier_PRO: "null"
+CreatedBy: 1
+CreatedDate: "2022-07-25T11:19:38.958Z"
+Date: "2022-07-25T16:49:07.750Z"
+Id: 0
+Invoice_Number: 913
+IsDeleted: false
+Note: "asdf"
+PJType: "AP"
+PayTo: "Priyankar"
+PurchaseJournal_Number: "PJ-AP-DEM-2022-167"
+Status: "95"
+Vendor_Name: "Demo User"
